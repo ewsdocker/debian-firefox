@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=/home/jay/.local/bin/docker-deb-start-0.0.4 debian-firefox-latest
+Icon=/home/jay/.local/share/icons/icon.xpm
+Type=Application
+Terminal=false
+GenericName=Firefox
+Name=Firefox
+StartupNotify=false
+Categories=Network

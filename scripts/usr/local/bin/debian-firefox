@@ -2,53 +2,49 @@
 # =========================================================================
 # =========================================================================
 #
-#	version
-#	  Print version information
+#	debian-firefox
+#	  Sample run script for ewsdocker/debian-firefox
 #
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 0.0.1
+# @version latest
 # @copyright © 2018. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
-# @package ewsdocker/debian-base
-# @subpackage version
+# @package ewsdocker/debian-firefox
+# @subpackage debian-firefox.run
 #
 # =========================================================================
 #
 #	Copyright © 2018. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
-#   This file is part of ewsdocker/debian-base.
+#   This file is part of ewsdocker/debian-firefox.
 #
-#   ewsdocker/debian-base is free software: you can redistribute 
+#   ewsdocker/debian-firefox is free software: you can redistribute 
 #   it and/or modify it under the terms of the GNU General Public License 
 #   as published by the Free Software Foundation, either version 3 of the 
 #   License, or (at your option) any later version.
 #
-#   ewsdocker/debian-base is distributed in the hope that it will 
+#   ewsdocker/debian-firefox is distributed in the hope that it will 
 #   be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
 #   of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License
-#   along with ewsdocker/debian-base.  If not, see 
+#   along with ewsdocker/debian-firefox.  If not, see 
 #   <http://www.gnu.org/licenses/>.
 #
 # =========================================================================
 # =========================================================================
 
-. /usr/local/lib/lms/lmsVersion.bash
-
-# =========================================================================
-
-echo
-echo "***********************************************************************"
-echo
-
-lmsVersion
-
-echo
-echo "***********************************************************************"
-echo
+docker run -e DISPLAY=unix${DISPLAY} \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
+           -v /etc/localtime:/etc/localtime:ro \
+           -v ${HOME}/.config/docker/debian-firefox-latest:/root \
+           -v ${HOME}/.config/docker/debian-firefox-latest/workspace:/workspace \
+           -v ${HOME}/source:/source \
+           --name=debian-firefox-latest \
+       ewsdocker/debian-firefox:latest
 
