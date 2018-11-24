@@ -39,12 +39,14 @@
 # =========================================================================
 
 docker run -e DISPLAY=unix${DISPLAY} \
+           --device /dev/snd \
+           -v /dev/shm:/dev/shm \
+           -v /etc/localtime:/etc/localtime:ro \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
-           -v /etc/localtime:/etc/localtime:ro \
            -v ${HOME}/.config/docker/debian-firefox-9.5.0:/root \
            -v ${HOME}/.config/docker/debian-firefox-9.5.0/workspace:/workspace \
-           -v ${HOME}/source:/source \
+           -v ${HOME}/Downloads:/Downloads \
            --name=debian-firefox-9.5.0 \
        ewsdocker/debian-firefox:9.5.0
 
