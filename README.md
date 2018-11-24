@@ -1,11 +1,7 @@
-## debian-firefox
-**Firefox-esr** in a Docker image.
-
-____  
+## debian-firefox  
+**Firefox-esr** in a Docker image.  
 
 **Pre-built Docker images are available from the [ewsdocker/debian-firefox](https://hub.docker.com/r/ewsdocker/debian-firefox)** repository.  
-
-____  
 
 ## Table of Contents
 
