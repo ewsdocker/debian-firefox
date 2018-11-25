@@ -36,7 +36,7 @@
 #
 # =========================================================================
 # =========================================================================
-FROM ewsdocker/debian-openjre:9.5.9
+FROM ewsdocker/debian-openjre:9.5.8
 
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
@@ -51,7 +51,7 @@ ENV LMSBUILD_NAME="debian-firefox"
 ENV LMSBUILD_REPO=ewsdocker 
 ENV LMSBUILD_REGISTRY="" 
 
-ENV LMSBUILD_PARENT="debian-openjre:9.5.9"
+ENV LMSBUILD_PARENT="debian-openjre:9.5.8"
 ENV LMSBUILD_DOCKER="ewsdocker/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
 ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}, Firefox-esr ${FIREFOX_VER}"
 
@@ -59,10 +59,8 @@ ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}, Firefox-esr ${FIREFOX_VER}"
 
 RUN apt-get -y update \
  && apt-get -y upgrade \
- && apt-get -y install \
-            firefox-esr \
-            xdg-utils \
- && apt-get clean all \
+ && apt-get -y install firefox-esr \
+                       xdg-utils \
  && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt 
 
 # =========================================================================
@@ -74,9 +72,10 @@ RUN chmod +x /usr/local/bin/* \
 
 # =========================================================================
 
-VOLUME /documents
+VOLUME /Downloads
+VOLUME /source
 
 # =========================================================================
 
 ENTRYPOINT ["/my_init", "--quiet"]
-CMD ["/usr/bin/libreoffice"]
+CMD ["/bin/bash"]
