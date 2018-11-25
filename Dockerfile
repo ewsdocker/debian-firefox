@@ -66,6 +66,7 @@ RUN apt-get -y update \
 # =========================================================================
 
 COPY scripts/. /
+
 RUN chmod +x /usr/local/bin/* \
  && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}-${LMSBUILD_VERSION}.desktop \
  && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}.desktop
