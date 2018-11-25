@@ -844,7 +844,8 @@
             <div class="leftMenuText darkBlue">
               <br />
               <a href="https://github.com/ewsdocker/debian-firefox/wiki">Home</a><br />
-              <a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart">Quick Start</a><br />
+              <a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart">Quick Start - latest</a><br />
+              <a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned">Quick Start - 9.5.0</a><br />
               <a href="https://github.com/ewsdocker/debian-firefox/wiki/CommandLineInterface">Command-line Interface</a><br />
               <a href="https://github.com/ewsdocker/debian-firefox/wiki/DockerTags">Docker Tags</a><br />
             </div>
@@ -1011,33 +1012,10 @@
 
               <p>
                 <b>debian-firefox</b> is a <i><b>Docker container</b></i> wrapper around an 
-                unmodified <a href="http://www.netsurf-browser.org/">NetSurf</a> web browser.  
+                unmodified <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> web 
+                browser.  
               </p>
               
-              <p>
-                <a href="http://www.netsurf-browser.org/">NetSurf</a> is HTML 4.01 and 
-                CSS 2 compliant, is a multi-platform design with support for RISC-OS, MacOSX, 
-                and Unix/Linux (using GTK), and has a very small footprint. All of which 
-                makes it perfect for use in embedded hardware and software applications.  
-	          </p>
-	          
-	          <p>
-	            According to the web site, 
-	            <ul>
-                  <a href="http://www.netsurf-browser.org/">NetSurf</a> is a free, open 
-                  source web browser. It is written in C and released under the GNU Public 
-                  Licence [sic] version 2.  <a href="http://www.netsurf-browser.org/">NetSurf</a> 
-                  has its own layout and rendering engine entirely written from scratch. 
-                  It is small and capable of handling many of the web standards in use 
-                  today..." <br />
-	              <br />
-	              "Originally written for computer hardware normally found in PDAs, 
-                  cable TV boxes, mobile phones and other hand-held gadgets, 
-                  <a href="http://www.netsurf-browser.org/">NetSurf</a> is compact 
-                  and low maintenance by design."<br />
-				</ul>
-	          </p>
-
             </div>
 
             <!-- --------------------- -->
@@ -1053,61 +1031,97 @@
 
               <div id="toc_container">
                 <p class="toc_title">debian-firefox Wiki Contents</p>
+ 
                 <ul class="toc_list">
 
                   <li><a href="https://github.com/ewsdocker/debian-firefox/wiki">1 debian-firefox</a></li>
+                  <ul>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/Home#newest-version">1.1 Newest Version</a></li>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/Home#overview">1.2 Overview</a></li>
+                  </ul>  
+                  <br />  
+                  
+                  <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart">2 Quick Start - latest release</a></li>
+                  <ul>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#installing-debian-firefox">2.1 Installing debian-firefox</a></li>
+                    <ul>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#usage">2.1.1 Usage</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#environment-variables">2.1.2 Environment Variables</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#data-volumes">2.1.3 Data Volumes</a></li>
+                    </ul>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#running-debian-firefox">2.2 Running debian-firefox</a></li>
+                    <ul>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#mapping-run-time-resources">2.2.1 Mapping run-time resources</a></li>
+                      <ul>
+                        <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#mapping-data-volumes">2.2.1.1 Mapping Data Volumes</a></li>
+                      </ul>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#persistence">2.2.2 Persistence</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#timestamps">2.2.3 Timestamps</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#x11-server">2.2.4 X11 Server</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#uids-and-gids">2.2.5 UIDs and GIDs</a></li>
+                      <ul>
+                        <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#about-user-namespaces">2.2.5.1 About user namespaces</a></li>
+                        <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#running-outside-user-namespaces">2.2.5.2 Running outside user namespaces]</a></li>
+                        <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#specifying-uid-and-gid">2.2.5.3 Specifying UID and GID</a></li>
+                      </ul>
+                    </ul>
+                  </ul>
                   <br />
 
-                  <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart">2 Quick Start</a></li>
-                  <br />
+                  <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned">3 Quick Start - 9.5.0</a></li>
+                  <ul>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#installing-debian-firefox">3.1 Installing debian-firefox</a></li>
                     <ul>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#installing">2.1 Installing debian-firefox</a></li>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#running">2.2 Running the installed scripts</a></li>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#mapping">2.3 Mapping docker host resources to the container</a></li>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#persistence">2.4 Persistence</a></li>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#timestamps">2.5 Timestamps</a></li>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#about">2.6 About the X11 Server / GUI Stack</a></li>
-                    </ul></li>
-                  <br />
-
-                  <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/CommandLineInterface">3 Command-line Interface</a></li>
-                  <br />
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#usage">3.1.1 Usage</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#environment-variables">3.1.2 Environment Variables</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#data-volumes">3.1.3 Data Volumes</a></li>
+                    </ul>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#running-debian-firefox">3.2 Running debian-firefox:9.5.0</a></li>
                     <ul>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/CommandLineInterface#persisting">3.1 Persisting Container Modifications</a></li>
-                    </ul></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#mapping-run-time-resources">3.2.1 Mapping run-time resources</a></li>
+                      <ul>
+                        <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#mapping-data-volumes">3.2.1.1 Mapping Data Volumes</a></li>
+                      </ul>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#persistence">3.2.2 Persistence</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#timestamps">3.2.3 Timestamps</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#x11-server">3.2.4 X11 Server</a></li>
+                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#uids-and-gids">3.2.5 UIDs and GIDs</a></li>
+                      <ul>
+                        <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#about-user-namespaces">3.2.5.1 About user namespaces</a></li>
+                        <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#running-outside-user-namespaces">3.2.5.2 Running outside user namespaces]</a></li>
+                        <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#specifying-uid-and-gid">3.2.5.3 Specifying UID and GID</a></li>
+                      </ul>
+                    </ul>
+                  </ul>
                   <br />
 
                   <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/DockerTags">4 Docker Tags</a></li>
-                  <br />
-                    <ul>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/DockerTags#history">4.1 Docker Tag History</a></li>
-                    </ul></li>
+                  <ul>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/DockerTags#docker-tag-history">4.1 Docker Tag History</a></li>
+                  </ul>
                   <br />
 
                   <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/License">5 Licenses</a></li>
-                  <br />
-                    <ul>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/License">5.1 debian-firefox</a></li>
-                      <li><a href="http://www.netsurf-browser.org/about/licence.html">5.2 NetSurf</a></li>
-                    </ul></li>
+                  <ul>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox/wiki/License">5.1 debian-firefox</a></li>
+                    <li><a href="http://www.netsurf-browser.org/about/licence.html">5.2 Firefox</a></li>
+                  </ul>
                   <br />
 
                   <li><a href="#">6 Resources</a></li>
-                  <br />
-                    <ul>
-                      <li><a href="https://github.com/ewsdocker/debian-firefox">6.1 debian-firefox Source on GitHub</a></li>
-                      <li><a href="https://hub.docker.com/r/ewsdocker/debian-firefox">6.2 debian-firefox Image on Docker Hub</a></li>
-                      <li><a href="http://www.netsurf-browser.org">6.3 NetSurf</a></li>
-                    </ul></li>
+                  <ul>
+                    <li><a href="https://github.com/ewsdocker/debian-firefox">6.1 debian-firefox Source on GitHub</a></li>
+                    <li><a href="https://hub.docker.com/r/ewsdocker/debian-firefox">6.2 debian-firefox Image on Docker Hub</a></li>
+                    <li><a href="http://www.netsurf-browser.org">6.3 Firefox</a></li>
+                  </ul>
                   <br />
 
                   <li><a href="#">7 Referenced Projects</a></li>
-                  <br />
-                    <ul>
-                      <li><a href="https://github.com/ewsdocker/debian-kaptain">7.1 debian-kaptain Wiki</a></li>
-                      <li><a href="https://hub.docker.com/r/ewsdocker/debian-base-gui">7.2 debian-base-gui Wiki</a></li>
-                      <li><a href="https://hub.docker.com/r/ewsdocker/debian-base">7.3 debian-base Wiki</a></li>
-                    </ul></li>
+                  <ul>
+                    <li><a href="https://github.com/ewsdocker/debian-openjre">7.1 debian-openjre Wiki</a></li>
+                    <li><a href="https://hub.docker.com/r/ewsdocker/debian-base-gui">7.2 debian-base-gui Wiki</a></li>
+                    <li><a href="https://hub.docker.com/r/ewsdocker/debian-base">7.3 debian-base Wiki</a></li>
+                  </ul>
                 </ul>
               </div>
             </div>
@@ -1121,7 +1135,7 @@
 
             <!-- --------------------- -->
             <!--      block            -->
-            <!-- --------------------- -->
+            <!-- --------------------- 
             <div class="darkBlue border block">
 
              <div id="blockCentered">
@@ -1146,7 +1160,7 @@
             </div>
             <!-- --------------------- -->
             <!--      block            -->
-            <!-- --------------------- -->
+            <!-- --------------------- 
 
 	        <p style="text-align: center;"><img src="./images/Colorbar-560.gif" /></p>
 			<br />
