@@ -78,4 +78,4 @@ VOLUME /source
 # =========================================================================
 
 ENTRYPOINT ["/my_init", "--quiet"]
-CMD ["/bin/bash"]
+CMD ["firefox"]
