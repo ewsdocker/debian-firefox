@@ -8,6 +8,10 @@
    * [debian-firefox](https://github.com/ewsdocker/debian-firefox/wiki/)  
       * [Newest Version](https://github.com/ewsdocker/debian-firefox/wiki/Home#newest-version)
       * [Overview](https://github.com/ewsdocker/debian-firefox/wiki/Home#overview)  
+      * [Latest vs Versioned Release](https://github.com/ewsdocker/debian-firefox/wiki/Home#latest-vs-versioned-release)  
+         * [Versioned releases](https://github.com/ewsdocker/debian-firefox/wiki/Home#versioned-releases)  
+         * [Latest releases](https://github.com/ewsdocker/debian-firefox/wiki/Home#latest-releases) 
+         * [Suggested use](https://github.com/ewsdocker/debian-firefox/wiki/Home#suggested-use)  
 
 
    * [Quick Start - latest release](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart)
