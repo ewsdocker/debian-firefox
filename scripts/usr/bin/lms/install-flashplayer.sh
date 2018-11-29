@@ -3,15 +3,7 @@
 # =========================================================================
 #
 #	install-flashplayer.sh
-#	  script to install/upgrade the Adobe flashplayer
-#
-#   adapted from
-#     Adobe Flash Player installer/updater for Mozilla Firefox. 
-#     Please visit the project's website at: 
-#       https://github.com/cybernova/fireflashupdate
-#
-#     Licensed under the GNU General Public License, GPL-3.0-or-later.
-#     Copyright (C) 2018 Andrea Dari (andreadari@protonmail.com)                                    
+#	  Run a library script to install/upgrade the Adobe flashplayer
 #
 # =========================================================================
 #
@@ -44,55 +36,52 @@
 #   <http://www.gnu.org/licenses/>.
 #
 # =========================================================================
+#
+#		Version 0.0.1 - November 28, 2018.
+#
 # =========================================================================
+
+. /usr/local/lib/lms/lmsconDisplay-0.0.1.bash
+. /usr/local/lib/lms/lmsInstallFlash-0.0.1.sh
+
+# =========================================================================
+
+declare status=0
 
 # =========================================================================
 #
-#   installFlash
-#
-#   Enter:
-#       none
-#   Exit:
-#       0 = no error
-#       non-zero = error code
+#	Start application here
 #
 # =========================================================================
-function installFlash()
-{
-    FIREFOX_FLASH_INSTALL_DIR=${FIREFOX_FLASH_INSTALL_DIR:-/usr/lib/mozilla/plugins}
-    ARCH=x86_64
 
-    VERSION=$(wget -qO- https://fpdownload.macromedia.com/pub/flashplayer/masterversion/masterversion.xml | grep -m1 "NPAPI_linux version" | cut -d \" -f 2 | tr , .)
+lmscli_optQuiet=0 #${LMSOPT_QUIET}
+lmscli_optDebug=1 #${LMSOPT_DEBUG}
 
-    if [ -z "$VERSION" ]; then
-        printf "Could not work out the latest version; exiting\n" >&2
-        return 1
-    fi
+installFlash "${FIREFOX_FLASH_INSTALL_DIR}" "${FIREFOX_FLASH_MODULE}" "${FLASHPLAYER_NAME}" "${FLASHPLAYER_MASTER}"
+status=$?
 
-    if [ ! -e "$FIREFOX_FLASH_INSTALL_DIR" ]; then
-        mkdir -p "$FIREFOX_FLASH_INSTALL_DIR"
-    fi
+case ${status} in
 
-    if [ -r "$FIREFOX_FLASH_INSTALL_DIR/libflashplayer.so" ]; then
-        CUR_VER=$(grep -z 'FlashPlayer_' $FIREFOX_FLASH_INSTALL_DIR/libflashplayer.so | cut -d _ -f 2-5 | tr _ .)
-        if [ "$CUR_VER" = "$VERSION" ]; then
-            return 0
-        fi
-    fi
+	0)  lmsconDisplay "Flash player ${FLASHPLAYER_NAME} was successfully installed."
+	   	;;
+	    
+	1)  lmsconDisplay "Missing required parameter."
+	    ;;
+	    
+	2)	lmsconDisplay "Cannot get current player version."
+		;;
+		
+	3)  lmsconDisplay "Unable to read player master URL: ${FLASHPLAYER_MASTER}"
+		;;
+		
+	4)	lmsconDisplay "Unable to read archive file: ${FLASHPLAYER_NAME}"
+		;;
+		
+	*)  lmsconDisplay "An unknown error (${status}) has occurred."
+		;;
+esac
 
-    set -e
+# =========================================================================
 
-    mkdir /temp
-    cd /temp
+exit ${status}
 
-    wget "https://fpdownload.adobe.com/pub/flashplayer/pdc/$VERSION/flash_player_npapi_linux.${ARCH}.tar.gz"
-    tar -xof flash_player_npapi_linux.${ARCH}.tar.gz -C $FIREFOX_FLASH_INSTALL_DIR libflashplayer.so
-
-    rm flash_player_npapi_linux.${ARCH}.tar.gz
-
-    return 0
-}
-
-installFlash
-
-exit $?

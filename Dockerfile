@@ -46,6 +46,11 @@ ENV FIREFOX_VER="60.3.0"
 
 # =========================================================================
 
+ENV LMSOPT_QUIET=1
+ENV LMSOPT_DEBUG=0
+
+# =========================================================================
+
 ENV LMSBUILD_VERSION="9.5.1" 
 ENV LMSBUILD_NAME="debian-firefox" 
 ENV LMSBUILD_REPO=ewsdocker 
@@ -76,7 +81,9 @@ COPY scripts/. /
 
 RUN chmod +x /usr/local/bin/* \
  && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}-${LMSBUILD_VERSION}.desktop \
- && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}.desktop
+ && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}.desktop \
+ && ln -s /usr/bin/lms/install-flashplayer.sh /usr/bin/lms-installflash \
+ && chmod 755 /usr/bin/lms/install-flashplayer.sh 
 
 # =========================================================================
 
