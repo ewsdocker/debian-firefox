@@ -41,6 +41,7 @@
 docker run -e DISPLAY=unix${DISPLAY} \
            --device /dev/snd \
            -v /dev/shm:/dev/shm \
+           --shm-size=2g \
            -v /etc/localtime:/etc/localtime:ro \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
