@@ -63,5 +63,9 @@ ____
       * [Docker Tag History](https://github.com/ewsdocker/debian-firefox/wiki/DockerTags#docker-tag-history)
    
 
+   * [Bleeding-edge Testing ](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#bleeding-edge-testing)  
+      * [Download and Re-tag](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#download-and-re-tag)
+   
+
    * [License](https://github.com/ewsdocker/debian-firefox/wiki/License)
 
