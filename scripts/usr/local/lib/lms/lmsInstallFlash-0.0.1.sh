@@ -48,42 +48,14 @@
 #		Version 0.0.1 - 2018-11-28.
 #
 # =========================================================================
+# =========================================================================
 
 ARCH="x86_64"
 FLASHPLAYER_NAME="flash_player_npapi_linux.${ARCH}.tar.gz"
 FLASHPLAYER_MASTER="https://fpdownload.macromedia.com/pub/flashplayer/masterversion/masterversion.xml"
 
 FIREFOX_FLASH_MODULE="libflashplayer.so"
-FIREFOX_FLASH_INSTALL_DIR="/usr/lib/mozilla/plugins"
-
-# =========================================================================
-# =========================================================================
-
-# =========================================================================
-#
-#   lmsconDebug
-#		display debug message on the console
-#
-#	parameters:
-#		message = message to display
-#	returns:
-#		0 = no errors
-#		non-zero = error code
-#
-# =========================================================================
-function lmsconDebug()
-{
-    [[ ${lmscli_optDebug} -ne 0 && ${lmscli_optQuiet} -eq 0 ]] &&
-     {
-		lmsconDisplay "###########################"
-		lmsconDisplay "#"
-		lmsconDisplay "#   ${1}"
-		lmsconDisplay "#"
-		lmsconDisplay "###########################"
-	 }
-	
-	return 0
-}
+FIREFOX_FLASH_INSTALL_DIR="${HOME}/.mozilla/plugins"
 
 # =========================================================================
 #
@@ -107,14 +79,10 @@ function installFlash()
     local playerName=${3}
     local playerMaster="${4}"
     
-    lmsconDebug "installFlash: \"$flash_Dir\" \"$flashModule\" \"$playerName\" \"$playerMaster\""
-
 	[[ -z "${flashDir}" || -z "${flashModule}" ||-z "${playerName}" || -z "${playerMaster}" ]] && return 1
 
     local currentVersion
     local playerVersion=$(wget -qO- "${playerMaster}" | grep -m1 "NPAPI_linux version" | cut -d \" -f 2 | tr , .)
-
-	lmsconDebug "playerVersion = \"$playerVersion\""
 
     [[ -z "${playerVersion}" ]] && return 2
 
@@ -123,25 +91,23 @@ function installFlash()
     [[ -r "${flashDir}/${flashModule}" ]] &&
      {
         currentVersion=$(grep -z 'FlashPlayer_' ${flashDir}/${flashModule} | cut -d _ -f 2-5 | tr _ .)
-		lmsconDebug "currentVersion: $currentVersion"
-
-        [[ "${currentVersion}" = "${playerVersion}" ]] && return 0
+        [[ "${currentVersion}" == "${playerVersion}" ]] && return 0
      }
-
-	local startDir="${PWD}"
-
-    mkdir /temp
-    cd /temp
 
     wget "https://fpdownload.adobe.com/pub/flashplayer/pdc/${playerVersion}/${playerName}"
     [[ $? -eq 0 ]] || return 3
 
-    tar -xof ${playerName} -C ${flashDir} ${flashModule}
+    tar -xvf ${playerName}
     [[ $? -eq 0 ]] || return 4
+	
+	cp "${flashModule}" "${flashDir}"
+    cp -r usr/* /usr
 
-	cd "${startDir}"
+	mkdir -p ${flashDir}
+	cp ${flashDir}/${flashModule} ${flashDir}
 
-#	rm -R /temp
+    chmod 644 ${flashDir}/${flashModule}
+    chown root:root ${flashDir}/${flashModule}
 
     return 0
 }

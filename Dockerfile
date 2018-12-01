@@ -42,12 +42,25 @@ MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV FIREFOX_VER="60.3.0"
-
 # =========================================================================
 
 ENV LMSOPT_QUIET=1
-ENV LMSOPT_DEBUG=0
+
+# =========================================================================
+#
+# wget http://ftp.mozilla.org/pub/firefox/releases/62.0.3/linux-x86_64/en-US/firefox-62.0.3.tar.bz2
+#
+# =========================================================================
+
+ENV FIREFOX_RELEASE="62" 
+ENV FIREFOX_VERS="0.3"
+ENV FIREFOX_PKG="firefox-${FIREFOX_RELEASE}.${FIREFOX_VERS}.tar.bz2" 
+ENV FIREFOX_DIR=eclipse 
+
+#ENV FIREFOX_HOST=http://alpine-nginx-pkgcache
+ENV FIREFOX_HOST="http://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_RELEASE}.${FIREFOX_VERS}/linux-x86_64/en-US"
+
+ENV FIREFOX_URL="${FIREFOX_HOST}/${FIREFOX_PKG}"
 
 # =========================================================================
 
@@ -58,32 +71,71 @@ ENV LMSBUILD_REGISTRY=""
 
 ENV LMSBUILD_PARENT="debian-openjre:9.5.9-gtk3"
 ENV LMSBUILD_DOCKER="ewsdocker/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
-ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}, Firefox-esr ${FIREFOX_VER}"
+ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}, Firefox ${FIREFOX_RELEASE}.${FIREFOX_VERS}"
 
 # =========================================================================
 
 RUN apt-get -y update \
  && apt-get -y upgrade \
  && apt-get -y install \
-               firefox-esr \
+               alsa-utils \
+               bzip2 \
+               gvfs-bin \
+               libnspr4 \
+               libnss3 \
+               libasound2 \
+               libasound2-data \
+               libavcodec-extra57 \
+               libavutil55 \
+               libc6 \ 
+               libcairo2 \
+               libcanberra0 \
+               libevent-2.0-5 \
+               libevent-pthreads-2.0-5 \
+               libfreetype6 \
+               libgcc1 \
+               libgl1 \
+               libgl1-mesa-glx \
+               libglib2.0-0 \
+               libgtk2.0-0 \
+               libpango-1.0-0 \
+               libpangocairo-1.0-0 \
+               libpangoft2-1.0-0 \
+               libpulse0 \
+               libssl1.1 \
+               libstdc++6 \
+               libv4l-0 \
+               libva-x11-1 \
+               libva1 \
+               libvdpau1 \
+               libx11-6 \
+               libx11-protocol-perl \
+               libxcursor1 \
+               libxrandr2 \
+               libxrender1 \
+               pulseaudio \
+               x11-utils \
+               x11-xserver-utils \
                xdg-utils \
+ && cd /opt \
+ && wget ${FIREFOX_URL} \
+ && tar -xvf ${FIREFOX_PKG} \
+ && rm ${FIREFOX_PKG} \  
  && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt 
-
-# && mkdir /temp \
-# && cd /temp \
-# && wget https://raw.githubusercontent.com/cybernova/fireflashupdate/master/fireflashupdate.sh \
-# && chmod +x fireflashupdate.sh \
-# && ./fireflashupdate.sh \
 
 # =========================================================================
 
 COPY scripts/. /
 
+# =========================================================================
+
 RUN chmod +x /usr/local/bin/* \
+ && ln -s /usr/bin/lms/install-flashplayer.sh /usr/bin/lmsInstallFlash \
+ && chmod 775 /usr/bin/lms/install-flashplayer.sh \
  && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}-${LMSBUILD_VERSION}.desktop \
- && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}.desktop \
- && ln -s /usr/bin/lms/install-flashplayer.sh /usr/bin/lms-installflash \
- && chmod 755 /usr/bin/lms/install-flashplayer.sh 
+ && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}.desktop \  
+ && ln -s /opt/firefox/firefox /usr/bin/firefox \
+ && chmod 775 /opt/firefox/firefox 
 
 # =========================================================================
 

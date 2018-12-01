@@ -40,13 +40,16 @@
 #		Version 0.0.1 - November 28, 2018.
 #
 # =========================================================================
-
-. /usr/local/lib/lms/lmsconDisplay-0.0.1.bash
-. /usr/local/lib/lms/lmsInstallFlash-0.0.1.sh
-
 # =========================================================================
 
 declare status=0
+declare flashTemp="/flashtemp"
+declare startDir
+
+# =========================================================================
+
+. /usr/local/lib/lms/lmsconDisplay-0.0.1.bash
+. /usr/local/lib/lms/lmsInstallFlash-0.0.1.sh
 
 # =========================================================================
 #
@@ -54,8 +57,12 @@ declare status=0
 #
 # =========================================================================
 
-lmscli_optQuiet=0 #${LMSOPT_QUIET}
-lmscli_optDebug=1 #${LMSOPT_DEBUG}
+lmscli_optQuiet=${LMSOPT_QUIET}
+
+startDir="${PWD}"
+
+mkdir ${flashTemp}
+cd ${flashTemp}
 
 installFlash "${FIREFOX_FLASH_INSTALL_DIR}" "${FIREFOX_FLASH_MODULE}" "${FLASHPLAYER_NAME}" "${FLASHPLAYER_MASTER}"
 status=$?
@@ -78,10 +85,14 @@ case ${status} in
 		;;
 		
 	*)  lmsconDisplay "An unknown error (${status}) has occurred."
+	    status=5
 		;;
 esac
 
 # =========================================================================
+
+cd "${startDir}"
+rm -R ${flashTemp}
 
 exit ${status}
 
