@@ -65,6 +65,7 @@ ____
 
    * [Bleeding-edge Testing ](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#bleeding-edge-testing)  
       * [Download and Re-tag](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#download-and-re-tag)
+      * [Running debian-firefox:9.5.1](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#running-debian-firefox)
    
 
    * [License](https://github.com/ewsdocker/debian-firefox/wiki/License)
