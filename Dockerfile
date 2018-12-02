@@ -52,10 +52,11 @@ ENV LMSOPT_QUIET=1
 #
 # =========================================================================
 
+ENV FIREFOX_NAME="Firefox"
+
 ENV FIREFOX_RELEASE="62" 
 ENV FIREFOX_VERS="0.3"
 ENV FIREFOX_PKG="firefox-${FIREFOX_RELEASE}.${FIREFOX_VERS}.tar.bz2" 
-ENV FIREFOX_DIR=eclipse 
 
 #ENV FIREFOX_HOST=http://alpine-nginx-pkgcache
 ENV FIREFOX_HOST="http://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_RELEASE}.${FIREFOX_VERS}/linux-x86_64/en-US"
@@ -70,8 +71,8 @@ ENV LMSBUILD_REPO=ewsdocker
 ENV LMSBUILD_REGISTRY="" 
 
 ENV LMSBUILD_PARENT="debian-openjre:9.5.9-gtk3"
-ENV LMSBUILD_DOCKER="ewsdocker/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
-ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}, Firefox ${FIREFOX_RELEASE}.${FIREFOX_VERS}"
+ENV LMSBUILD_DOCKER="${LMSBUILD_REPO}/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
+ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}, ${FIREFOX_NAME} ${FIREFOX_RELEASE}.${FIREFOX_VERS}"
 
 # =========================================================================
 

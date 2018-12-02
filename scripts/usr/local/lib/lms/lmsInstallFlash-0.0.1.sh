@@ -50,12 +50,17 @@
 # =========================================================================
 # =========================================================================
 
-ARCH="x86_64"
-FLASHPLAYER_NAME="flash_player_npapi_linux.${ARCH}.tar.gz"
-FLASHPLAYER_MASTER="https://fpdownload.macromedia.com/pub/flashplayer/masterversion/masterversion.xml"
+# =========================================================================
+#
+#   Global variables
+#
+# =========================================================================
 
-FIREFOX_FLASH_MODULE="libflashplayer.so"
-FIREFOX_FLASH_INSTALL_DIR="${HOME}/.mozilla/plugins"
+declare flashplayerName="flash_player_npapi_linux.x86_64.tar.gz"
+declare flashplayerMaster="https://fpdownload.macromedia.com/pub/flashplayer/masterversion/masterversion.xml"
+
+declare flashplayerModule="libflashplayer.so"
+declare flashplayerFolder="${HOME}/.mozilla/plugins"
 
 # =========================================================================
 #
@@ -68,7 +73,10 @@ FIREFOX_FLASH_INSTALL_DIR="${HOME}/.mozilla/plugins"
 #       playerMaster = URL to the masterversion xml file
 #   Exit:
 #       0 = no error
-#       non-zero = error code
+#       1 = missing parameter(s)
+#       2 = an unknown version of Flashplayer is currently installed
+#       3 = unable to download the Flashplayer from Adobe
+#       4 = broken tarball
 #
 # =========================================================================
 function installFlash()
@@ -100,11 +108,10 @@ function installFlash()
     tar -xvf ${playerName}
     [[ $? -eq 0 ]] || return 4
 	
+	mkdir -p ${flashDir}
+
 	cp "${flashModule}" "${flashDir}"
     cp -r usr/* /usr
-
-	mkdir -p ${flashDir}
-	cp ${flashDir}/${flashModule} ${flashDir}
 
     chmod 644 ${flashDir}/${flashModule}
     chown root:root ${flashDir}/${flashModule}

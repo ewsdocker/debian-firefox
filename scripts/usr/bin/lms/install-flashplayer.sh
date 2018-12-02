@@ -3,7 +3,7 @@
 # =========================================================================
 #
 #	install-flashplayer.sh
-#	  Run a library script to install/upgrade the Adobe flashplayer
+#	  Run a library script to install/upgrade the current flashplayer
 #
 # =========================================================================
 #
@@ -42,10 +42,20 @@
 # =========================================================================
 # =========================================================================
 
+# =========================================================================
+#
+#   Global variables
+#
+# =========================================================================
+
 declare status=0
 declare flashTemp="/flashtemp"
 declare startDir
 
+# =========================================================================
+#
+#   External libraries - must be loaded prior to calling subroutines
+#
 # =========================================================================
 
 . /usr/local/lib/lms/lmsconDisplay-0.0.1.bash
@@ -64,12 +74,12 @@ startDir="${PWD}"
 mkdir ${flashTemp}
 cd ${flashTemp}
 
-installFlash "${FIREFOX_FLASH_INSTALL_DIR}" "${FIREFOX_FLASH_MODULE}" "${FLASHPLAYER_NAME}" "${FLASHPLAYER_MASTER}"
+installFlash "${flashplayerFolder}" "${flashplayerModule}" "${flashplayerName}" "${flashplayerMaster}"
 status=$?
 
 case ${status} in
 
-	0)  lmsconDisplay "Flash player ${FLASHPLAYER_NAME} was successfully installed."
+	0)  lmsconDisplay "Flash player ${flashplayerName} was successfully installed."
 	   	;;
 	    
 	1)  lmsconDisplay "Missing required parameter."
@@ -78,10 +88,10 @@ case ${status} in
 	2)	lmsconDisplay "Cannot get current player version."
 		;;
 		
-	3)  lmsconDisplay "Unable to read player master URL: ${FLASHPLAYER_MASTER}"
+	3)  lmsconDisplay "Unable to read player master URL: ${flashplayerMaster}"
 		;;
 		
-	4)	lmsconDisplay "Unable to read archive file: ${FLASHPLAYER_NAME}"
+	4)	lmsconDisplay "Unable to read archive file: ${flashplayerName}"
 		;;
 		
 	*)  lmsconDisplay "An unknown error (${status}) has occurred."
@@ -93,6 +103,12 @@ esac
 
 cd "${startDir}"
 rm -R ${flashTemp}
+
+# =========================================================================
+#
+#	Application exit
+#
+# =========================================================================
 
 exit ${status}
 
