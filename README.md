@@ -59,13 +59,21 @@ ____
       * [Persisting Container Modifications](https://github.com/ewsdocker/debian-firefox/wiki/CommandLineInterface#persisting-container-modifications)  
 
 
-   * [Docker Tags](https://github.com/ewsdocker/debian-firefox/wiki/DockerTags)  
-      * [Docker Tag History](https://github.com/ewsdocker/debian-firefox/wiki/DockerTags#docker-tag-history)
-   
-
    * [Bleeding-edge Testing ](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#bleeding-edge-testing)  
       * [Download and Re-tag](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#download-and-re-tag)
       * [Running debian-firefox:9.5.1](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#running-debian-firefox)
+   
+
+   * [Flashplayer Support](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer)
+      * [Background](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer#background)  
+      * [Installing Adobe Flashplayer Plugin](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer#installing-adobe-flashplayer-plugin)  
+      * [Updating Flashplayer](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer#updating-flashplayer)  
+      * [Known issues](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer#known-issues)  
+      * [Adobe Software Licensing Agreement](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer#adobe-software-licensing-agreement)  
+
+
+   * [Docker Tags](https://github.com/ewsdocker/debian-firefox/wiki/DockerTags)  
+      * [Docker Tag History](https://github.com/ewsdocker/debian-firefox/wiki/DockerTags#docker-tag-history)
    
 
    * [License](https://github.com/ewsdocker/debian-firefox/wiki/License)
