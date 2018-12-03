@@ -99,7 +99,8 @@ function installFlash()
     [[ -r "${flashDir}/${flashModule}" ]] &&
      {
         currentVersion=$(grep -z 'FlashPlayer_' ${flashDir}/${flashModule} | cut -d _ -f 2-5 | tr _ .)
-        [[ "${currentVersion}" == "${playerVersion}" ]] && return 0
+        [[ "${currentVersion}" == "${playerVersion}" ]] && installAction="Replacing" || installAction="Installing"
+		lmsconDisplay "${installAction} version ${currentVersion}"
      }
 
     wget "https://fpdownload.adobe.com/pub/flashplayer/pdc/${playerVersion}/${playerName}"
