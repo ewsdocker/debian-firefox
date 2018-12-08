@@ -36,12 +36,12 @@ ____
             * [Specifying UID and GID](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#specifying-uid-and-gid)  
 
 
-   * [Quick Start - 9.5.2](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned)
-      * [Installing debian-firefox 9.5.2](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#installing-debian-firefox)
+   * [Quick Start - 9.5.1](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned)
+      * [Installing debian-firefox 9.5.1](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#installing-debian-firefox)
          * [Usage](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#usage)
          * [Environment Variables](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#environment-variables)
          * [Data Volumes](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#data-volumes)
-      * [Running debian-firefox 9.5.2](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#running-debian-firefox)
+      * [Running debian-firefox 9.5.1](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#running-debian-firefox)
          * [Mapping run-time resources](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#mapping-run-time-resources)  
             * [Mapping Data Volumes](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#mapping-data-volumes)  
          * [Persistence](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#persistence)
@@ -59,7 +59,7 @@ ____
 
    * [Bleeding-edge Testing ](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#bleeding-edge-testing)  
       * [Download and Re-tag](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#download-and-re-tag)
-      * [Running debian-firefox:9.5.2](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#running-debian-firefox)
+      * [Running debian-firefox:9.5.1](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#running-debian-firefox)
    
 
    * [Flashplayer Support](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer)
