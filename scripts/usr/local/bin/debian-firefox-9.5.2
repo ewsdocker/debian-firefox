@@ -8,7 +8,7 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.5.1
+# @version 9.5.2
 # @copyright © 2018. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/debian-firefox
@@ -45,9 +45,9 @@ docker run -e DISPLAY=unix${DISPLAY} \
            -v /etc/localtime:/etc/localtime:ro \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
-           -v ${HOME}/.config/docker/debian-firefox-9.5.1:/root \
-           -v ${HOME}/.config/docker/debian-firefox-9.5.1/workspace:/workspace \
+           -v ${HOME}/.config/docker/debian-firefox-9.5.2:/root \
+           -v ${HOME}/.config/docker/debian-firefox-9.5.2/workspace:/workspace \
            -v ${HOME}/Downloads:/Downloads \
-           --name=debian-firefox-9.5.1 \
-       ewsdocker/debian-firefox:9.5.1
+           --name=debian-firefox-9.5.2 \
+       ewsdocker/debian-firefox:9.5.2
 
