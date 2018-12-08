@@ -2,7 +2,7 @@
 **Firefox** in a Docker image.  
 
 #### GitHub Current Source is EDGE
-The _9.5.2_ version is now under development. It will show itself as _EDGE_ in Docker hub Tags.  
+The _9.5.2_ version is now under development. It will show itself as _EDGE_ in Docker hub [Tags](https://hub.docker.com/r/ewsdocker/debian-firefox/tags/).  
 
 The _9.5.2_ and _EDGE_ tags are development versions of GitHub source and debian-firefox Docker image, respectively.  
 
