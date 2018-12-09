@@ -54,12 +54,12 @@ ENV LMSOPT_QUIET=0
 
 ENV FIREFOX_NAME="Firefox"
 
-ENV FIREFOX_RELEASE="62" 
+ENV FIREFOX_RELEASE="63" 
 ENV FIREFOX_VERS="0.3"
 ENV FIREFOX_PKG="firefox-${FIREFOX_RELEASE}.${FIREFOX_VERS}.tar.bz2" 
 
-#ENV FIREFOX_HOST=http://alpine-nginx-pkgcache
-ENV FIREFOX_HOST="http://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_RELEASE}.${FIREFOX_VERS}/linux-x86_64/en-US"
+ENV FIREFOX_HOST=http://alpine-nginx-pkgcache
+#ENV FIREFOX_HOST="http://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_RELEASE}.${FIREFOX_VERS}/linux-x86_64/en-US"
 
 ENV FIREFOX_URL="${FIREFOX_HOST}/${FIREFOX_PKG}"
 
