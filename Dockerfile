@@ -48,14 +48,14 @@ ENV LMSOPT_QUIET=0
 
 # =========================================================================
 #
-# wget http://ftp.mozilla.org/pub/firefox/releases/62.0.3/linux-x86_64/en-US/firefox-62.0.3.tar.bz2
+# wget http://ftp.mozilla.org/pub/firefox/releases/64.0/linux-x86_64/en-US/firefox-64.0.tar.bz2
 #
 # =========================================================================
 
 ENV FIREFOX_NAME="Firefox"
 
-ENV FIREFOX_RELEASE="63" 
-ENV FIREFOX_VERS="0.3"
+ENV FIREFOX_RELEASE="64" 
+ENV FIREFOX_VERS="0"
 ENV FIREFOX_PKG="firefox-${FIREFOX_RELEASE}.${FIREFOX_VERS}.tar.bz2" 
 
 #ENV FIREFOX_HOST=http://alpine-nginx-pkgcache
