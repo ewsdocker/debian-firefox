@@ -1,7 +1,7 @@
 ## debian-firefox  
 **Firefox** in a Docker image.  
 
-Currntly supporting **Firefox 63.0.3**
+Currntly supporting **Firefox 64.0**
 
 #### GitHub Current Source is EDGE
 The _9.5.4_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-firefox/tags/).  The _9.5.4_ and _EDGE_ tags are development versions of GitHub source and debian-firefox Docker image, respectively.  
