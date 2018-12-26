@@ -74,7 +74,7 @@ ____
 
    * [Firefox Add-on Helper Applications](https://github.com/ewsdocker/debian-firefox/wiki/VideoDownloadhelper)
       * [Overview](https://github.com/ewsdocker/debian-firefox/wiki/VideoDownloadhelper#overview)  
-      * [Video DownloadHelper - An example](https://github.com/ewsdocker/debian-firefox/wiki/VideoDownloadhelper#videodownloadhelper---an-example)  
+      * [Video DownloadHelper - An example](https://github.com/ewsdocker/debian-firefox/wiki/VideoDownloadhelper#video-downloadhelper---an-example)  
 
 
    * [Docker Tags](https://github.com/ewsdocker/debian-firefox/wiki/DockerTags)  
