@@ -72,6 +72,11 @@ ____
       * [Adobe Software Licensing Agreement](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer#adobe-software-licensing-agreement)  
 
 
+   * [Firefox Add-on Helper Applications](https://github.com/ewsdocker/debian-firefox/wiki/VideoDownloadhelper)
+      * [Overview](https://github.com/ewsdocker/debian-firefox/wiki/VideoDownloadhelper#overview)  
+      * [Video DownloadHelper - An example](https://github.com/ewsdocker/debian-firefox/wiki/VideoDownloadhelper#videodownloadhelper---an-example)  
+
+
    * [Docker Tags](https://github.com/ewsdocker/debian-firefox/wiki/DockerTags)  
       * [Docker Tag History](https://github.com/ewsdocker/debian-firefox/wiki/DockerTags#docker-tag-history)
    
