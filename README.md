@@ -4,9 +4,9 @@
 Currntly supporting **Firefox 64.0**
 
 #### GitHub Current Source is EDGE
-The _9.5.4_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-firefox/tags/).  The _9.5.4_ and _EDGE_ tags are development versions of GitHub source and debian-firefox Docker image, respectively.  
+The _9.6.1_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-firefox/tags/).  The _9.6.1_ and _EDGE_ tags are development versions of GitHub source and debian-firefox Docker image, respectively.  
 
-The _9.5.3_ source version (also the current [Docker Tag](https://hub.docker.com/r/ewsdocker/debian-firefox/tags/) version) is available from the [GitHub Tags](https://github.com/ewsdocker/debian-firefox/tree/9.5.3) release tree in the _Branch_/_Tags_ selector box.
+The _9.6.0_ source version (also the current [Docker Tag](https://hub.docker.com/r/ewsdocker/debian-firefox/tags/) version) is available from the [GitHub Tags](https://github.com/ewsdocker/debian-firefox/tree/9.6.0) release tree in the _Branch_/_Tags_ selector box.
 ____  
 **Pre-built Docker images are available from the [ewsdocker/debian-firefox](https://hub.docker.com/r/ewsdocker/debian-firefox)** repository.  
 ____  
@@ -38,12 +38,12 @@ ____
             * [Specifying UID and GID](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart#specifying-uid-and-gid)  
 
 
-   * [Quick Start - 9.5.3](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned)
-      * [Installing debian-firefox 9.5.3](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#installing-debian-firefox)
+   * [Quick Start - 9.6.0](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned)
+      * [Installing debian-firefox 9.6.0](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#installing-debian-firefox)
          * [Usage](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#usage)
          * [Environment Variables](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#environment-variables)
          * [Data Volumes](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#data-volumes)
-      * [Running debian-firefox 9.5.3](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#running-debian-firefox)
+      * [Running debian-firefox 9.6.0](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#running-debian-firefox)
          * [Mapping run-time resources](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#mapping-run-time-resources)  
             * [Mapping Data Volumes](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#mapping-data-volumes)  
          * [Persistence](https://github.com/ewsdocker/debian-firefox/wiki/QuickStart-Versioned#persistence)
@@ -61,7 +61,7 @@ ____
 
    * [Bleeding-edge Testing ](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#bleeding-edge-testing)  
       * [Download and Re-tag](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#download-and-re-tag)
-      * [Running debian-firefox:9.5.4](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#running-debian-firefox)
+      * [Running debian-firefox:9.6.1](https://github.com/ewsdocker/debian-firefox/wiki/EdgeTesting#running-debian-firefox)
    
 
    * [Flashplayer Support](https://github.com/ewsdocker/debian-firefox/wiki/Flashplayer)
