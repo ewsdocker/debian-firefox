@@ -7,15 +7,15 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.5.4
-# @copyright © 2017, 2018. EarthWalk Software.
+# @version 9.6.0
+# @copyright © 2017, 2018, 2019. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package debian-firefox
 # @subpackage Dockerfile
 #
 # =========================================================================
 #
-#	Copyright © 2017, 2018. EarthWalk Software
+#	Copyright © 2017, 2018, 2019. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
 #   This file is part of ewsdocker/debian-firefox.
@@ -36,7 +36,7 @@
 #
 # =========================================================================
 # =========================================================================
-FROM ewsdocker/debian-openjre:9.5.9-gtk3
+FROM ewsdocker/debian-openjre:9.6.0-gtk3
 
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
@@ -65,12 +65,12 @@ ENV FIREFOX_URL="${FIREFOX_HOST}/${FIREFOX_PKG}"
 
 # =========================================================================
 
-ENV LMSBUILD_VERSION="9.5.4" 
+ENV LMSBUILD_VERSION="9.6.0" 
 ENV LMSBUILD_NAME="debian-firefox" 
 ENV LMSBUILD_REPO=ewsdocker 
 ENV LMSBUILD_REGISTRY="" 
 
-ENV LMSBUILD_PARENT="debian-openjre:9.5.9-gtk3"
+ENV LMSBUILD_PARENT="debian-openjre:9.6.0-gtk3"
 ENV LMSBUILD_DOCKER="${LMSBUILD_REPO}/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
 ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}, ${FIREFOX_NAME} ${FIREFOX_RELEASE}.${FIREFOX_VERS}"
 
@@ -118,10 +118,13 @@ RUN apt-get -y update \
                x11-utils \
                x11-xserver-utils \
                xdg-utils \
+ && apt-get clean all \
  && cd /opt \
  && wget ${FIREFOX_URL} \
  && tar -xvf ${FIREFOX_PKG} \
  && rm ${FIREFOX_PKG} \  
+ && ln -s /opt/firefox/firefox /usr/bin/firefox \
+ && chmod 775 /opt/firefox/firefox \
  && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt 
 
 # =========================================================================
@@ -134,9 +137,7 @@ RUN chmod +x /usr/local/bin/* \
  && ln -s /usr/bin/lms/install-flashplayer.sh /usr/bin/lmsInstallFlash \
  && chmod 775 /usr/bin/lms/install-flashplayer.sh \
  && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}-${LMSBUILD_VERSION}.desktop \
- && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}.desktop \  
- && ln -s /opt/firefox/firefox /usr/bin/firefox \
- && chmod 775 /opt/firefox/firefox 
+ && chmod 600 /usr/local/share/applications/${LMSBUILD_NAME}.desktop  
 
 # =========================================================================
 
