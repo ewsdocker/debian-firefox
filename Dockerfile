@@ -43,6 +43,18 @@ MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 # =========================================================================
+#
+#   ARG_SOURCE <== url of the local source (http://alpine-nginx-pkgcache), 
+#                   otherwise external source if not set.
+#
+#       Build option:
+#         --build-arg ARG_SOURCE=http://alpine-nginx-pkgcache --network=pkgnet
+#
+# =========================================================================
+
+ARG ARG_SOURCE
+
+# =========================================================================
 
 ENV LMSOPT_QUIET=0
 
@@ -59,7 +71,7 @@ ENV FIREFOX_VERS="0"
 ENV FIREFOX_PKG="firefox-${FIREFOX_RELEASE}.${FIREFOX_VERS}.tar.bz2" 
 
 #ENV FIREFOX_HOST=http://alpine-nginx-pkgcache
-ENV FIREFOX_HOST="http://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_RELEASE}.${FIREFOX_VERS}/linux-x86_64/en-US"
+ENV FIREFOX_HOST=${ARG_SOURCE:-"http://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_RELEASE}.${FIREFOX_VERS}/linux-x86_64/en-US"}
 
 ENV FIREFOX_URL="${FIREFOX_HOST}/${FIREFOX_PKG}"
 
@@ -118,13 +130,13 @@ RUN apt-get -y update \
                x11-utils \
                x11-xserver-utils \
                xdg-utils \
- && apt-get clean all \
  && cd /opt \
  && wget ${FIREFOX_URL} \
  && tar -xvf ${FIREFOX_PKG} \
  && rm ${FIREFOX_PKG} \  
  && ln -s /opt/firefox/firefox /usr/bin/firefox \
  && chmod 775 /opt/firefox/firefox \
+ && apt-get clean all \
  && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt 
 
 # =========================================================================
